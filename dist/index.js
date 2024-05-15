@@ -31113,6 +31113,8 @@ async function main () {
       const rendered = url.replace(/\{(\w+?)\}/g, (a, match) => {
         return context[match] || ''
       })
+      
+      console.log(`Downloading yq from '${rendered}'.`)
 
       const downloadPath = await cache.downloadTool(rendered)
       toolPath = await cache.cacheFile(downloadPath, 'yq', 'yq', version)
