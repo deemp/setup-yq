@@ -21,7 +21,10 @@ async function main () {
   try {
     const url = core.getInput('yq-url')
     const version = core.getInput('yq-version')
-    const platform = os.platform()
+    let platform = os.platform()
+    if (platform === 'win32') {
+      platform = 'windows'
+    }
     let arch = os.arch()
     if (arch === 'x64') {
       arch = 'amd64'
